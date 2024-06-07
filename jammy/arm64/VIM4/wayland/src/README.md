@@ -5,7 +5,7 @@ To compile the code, do
 ```
 sudo apt-get install libdrm-dev patchelf
 
-gcc -Wall -O2 -fpic -shared gbm_bo_create_with_modifiers2.c -o mali_shim.so
+gcc -Wall -O2 -fpic -shared gbm_symbols_proxy.c -o mali_shim.so
 ```
 
 Then I have used patchelf to add mali_shim.so file as dependency for libMali.so. This ensures that we have a fallback implementation available at runtime for the missing function without having to patch any other programs.

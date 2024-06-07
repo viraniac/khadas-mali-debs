@@ -2,6 +2,12 @@
 #include <libdrm/drm_fourcc.h>
 #include "gbm.h"
 
+int gbm_bo_get_fd_for_plane(struct gbm_bo *bo, int plane)
+{
+  // ignore the plane
+  return gbm_bo_get_fd(bo);
+}
+
 struct gbm_bo *
 gbm_bo_create_with_modifiers2(struct gbm_device *gbm,
                               uint32_t width, uint32_t height,
